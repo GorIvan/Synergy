@@ -1,0 +1,206 @@
+.admin{
+    position: relative;
+
+    .return-link {
+        cursor: pointer;
+        position: absolute;
+        left: 30px;
+        top: 30px;
+        font-weight: bold;
+        font-size: 24px;
+        color: #3E378D;
+    }
+
+    a {
+        text-decoration: none;
+    }
+    a,
+    button{
+        cursor: pointer;
+    }
+    ul,
+    ul li {
+        list-style: none;
+    }
+
+    form,
+    p,
+    a,
+    button,
+    input,
+    ol,
+    ul,
+    li, 
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0;
+      padding: 0;
+      color: inherit;
+    }
+
+   width: 100%;
+   padding: 32px 78px;
+   display: block;
+   &__header{
+    display: block;
+        h1{
+            display: block;
+            color: $colorPrimary;
+            @include font(400, 24px, 28px);
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        .admin__menu{
+            @include flex(row, center, center, nowrap);
+            margin-bottom: 32px;
+            border-radius: 5px;
+            background-color: $colorBg;
+            &-item{
+                @include flex(row, center, center, nowrap);
+                // Исправим после MVP 
+                // width: 34%;
+                width: 50%;
+                height: 44px;
+                
+                cursor: pointer;
+                span{
+                    color: $colorText;
+                    @include font(400, 14px, 20px);
+                }
+            }
+            &-item.active{
+                background-color: $borderColor;
+                border-radius: 5px;
+            }
+
+        }
+   }
+    .table{
+        display: block;
+        width: 100%;
+        &__header{
+            padding: 19px 8px;
+            background-color: $colorBg;
+            border-bottom: 1px solid $borderColor;
+            width: 100%;
+            @include flex(row, flex-start, center, nowrap);
+            &-item{
+                position: relative;
+                @include font(500, 14px, 20px);
+                @include flex(row, flex-start, center, wrap);
+                span{
+                    cursor: pointer;
+                    margin-right: 8px;
+                }
+                .games-list-header{
+                    cursor: default;
+                }
+            }
+            &-item.id{
+                width: 12%;
+            }
+            &-item.coach{
+                width: 24%;
+            }
+            &-item.games-list{
+                width: 30%;
+            }
+            &-item.delete{
+                width: 15%;
+                justify-content: center;
+            }
+            &-item.number{
+                width: 19%;
+                justify-content: center;
+            }
+
+        }
+        &__list{
+            height: calc(100vh - 425px);
+            width: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+            &::-webkit-scrollbar {
+                width: 4px;
+                height: 50px;
+            }            
+            /* Track */
+            &::-webkit-scrollbar-track {
+                -webkit-border-radius: 10px;
+                border-radius: 10px;
+            }            
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+                -webkit-border-radius: 10px;
+                border-radius: 10px;
+                background: $colorPrimary50;
+            }
+            @include flex(column, flex-start, flex-start, nowrap);
+            &-row{
+                width: 100%;
+                padding: 19px 8px;
+                border-bottom: 1px solid $borderColor;
+            }
+            &-item{
+                @include font(400, 14px, 20px);
+                @include flex(row, flex-start, center, wrap);
+            }
+            &-item.id{
+                width: 12%;
+                padding-right: 35px;
+            }
+            &-item.coach{
+                width: 24%;
+                padding-right: 35px;
+            }
+            &-item.games-list{
+                width: 30%;
+                padding-right: 35px;
+                .games-list-wrapper{
+                    flex-direction: column;
+                    .game:not(:last-child){
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+            &-item.delete{
+                width: 15%;
+                @include flex(row, center, center, nowrap);
+            }
+            &-item.number{
+                width: 19%;
+                @include flex(row, center, center, nowrap);
+            }
+        }
+    }
+    .trainers-list{
+        width: 100%;
+        @include flex(column, center, center, nowrap);
+
+        .add-button{
+            @include font(400, 14px, 20px);
+            background-color: $colorSecond;
+            border-radius: 100px;
+            margin-bottom: 32px;
+            
+        }
+
+        .pages-wrapper{
+            margin-top: 10px;
+            padding-right: 20px;
+            width: 100%;
+            justify-content: flex-end;
+            
+            .page {
+                padding: 5px;
+                margin-right: 10px;
+                height: 30px;
+                cursor: pointer;
+            }
+        }
+    }
+}

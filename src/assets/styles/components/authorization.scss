@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+@mixin flex($flexDir, $jc, $alignI, $wrap){
+    display: flex;
+    flex-direction: $flexDir;
+    justify-content: $jc;
+    align-items: $alignI;
+    flex-wrap: $wrap;
+}
+.authorization__wrapper{
+    @include flex(column, flex-start, center, nowrap);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: cover;
+    position: relative;
+    
+}
+.main-logo{
+    margin-top: 73px;
+    margin-bottom: 104px;
+}	
+.authorization-page{
+    @include flex(column, flex-start, center, nowrap);
+    padding: 40px 0;
+    background-color: $colorBgHeader;
+    width: 60%;
+    max-width: 771px;
+    border-radius: 5px;
+
+    .greeting{
+        color: $colorPrimary;
+        margin-bottom: 36px;
+        height: 23px;
+        font-size: 20px;
+        line-height: 23px;
+    }		
+    .authorization-main-block{
+
+        *{
+            display: flex;
+        }
+        .validation-form{	
+            height: 242px;
+            position: relative;
+            .authorization-controls{
+                @include flex(row, center, center, nowrap);		
+                min-width: 342px;
+                flex-direction: column;
+                .validation-block{
+                    width: 373px;
+                    height: 76px;
+                    margin-bottom: 16px;
+                    flex-direction: column;
+                    position: relative;
+                    font-size: 12px;
+                    line-height: 14px;					
+                    .eye{
+                        width: 24px;
+                        height: 24px;
+                        position: absolute;
+                        right: 8px;
+                        top: 27px;
+                        img{
+                            position: absolute;
+                        }
+                    }
+                    .input-header{
+                        color: $colorPrimary;
+                        height: 14px;
+                        margin-bottom: 4px;
+                    }
+                    .input-basement{
+                        display: flex;
+                        margin-top: 4px;
+                        color: $colorError;
+                        justify-content: space-between;
+
+                        .input-basement__left{
+                            font-style: italic;
+                        }
+                        img{
+                            height: 14px;
+                            width: 14px;
+                            margin-right: 4px;
+                        }
+                        .input-basement__right{
+                            font-weight: normal;
+                            font-size: 12px;
+                            line-height: 14px;
+                            color: #3E378D;
+                            cursor: pointer;
+                        }
+                    }
+                    input{
+                        color: $colorPrimary;
+                        height: 40px;
+                        background-color: $colorBg;
+                        outline: none;
+                        border: none;
+                        padding-left: 12px;
+                        padding-right: 40px;
+                        border-radius: 5px;
+                        &::placeholder{
+                            color: $colorPrimary50;
+                        }
+                    }
+                }
+                .save-button{
+                    @include flex(row, center, center, nowrap);
+                    margin-top: 18px;
+                    height: 40px;
+                    width: 184px;
+                    background-color: $colorPrimary;
+                    border-radius: 100px;
+                    font-weight: 500;
+                    font-size: 14px;
+                    line-height: 16px;
+                    color: $colorBgHeader;
+                    user-select: none; 
+                    &:hover{
+                        background-color: $colorPrimaryHover;
+                    } 
+                }
+            }
+        }
+    }   
+}

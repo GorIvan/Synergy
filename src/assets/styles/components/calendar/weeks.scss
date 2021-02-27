@@ -1,0 +1,137 @@
+.weeks-wrapper{
+    width: 1079px;
+    align-items: center;
+    flex-direction: column;
+    .header{
+        height: 28px;
+        font-size: 24px;
+        line-height: 28px;
+        color: $colorPrimary;
+    }
+    .info-message{
+        justify-content: center;
+        margin-top: 36px;
+        width: 376px;
+        height: 16px;
+        font-size: 14px;
+        line-height: 16px;
+        color: $colorPrimary;
+
+    }
+    .goals-header{
+        margin-top: 12px;
+    }
+    .goals-wrapper{
+        margin-top: 20px;
+        width: 1079px;
+        min-height: 352px;
+        background: $colorBgHeader;
+        border-radius: 5px;
+        align-items: center;
+        justify-content: center;
+        .goals{
+            height: 304px;
+            flex-direction: column;
+            justify-content: space-between;
+            color: $colorText;
+            .weeks{
+                position: relative;
+                width: 1031px;
+                height: 48px;
+                justify-content: space-between;
+                .week{
+                    width: 115px;
+                    height: 48px;
+                    background: $colorSecond;
+                    border-radius: 5px;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    font-size: 14px;
+                    line-height: 16px;
+                }
+                .slider{
+                    position: absolute;
+                    top: -24px;
+                    height: 352px;
+                    width: 4px;
+                    background-color: $colorError;
+                    border-radius: 5px;
+                }
+            }
+            .goals-container{
+                width: 1031px;
+                height: 48px;
+                justify-content: space-between;
+                .goal{
+                    justify-content: space-between;
+                    align-items: center;
+                    border: 1px solid $colorPrimary;
+                    box-sizing: border-box;
+                    border-radius: 5px;
+                    .goal-content{
+                        align-items: center;
+                        margin-left: 15px;
+                        margin-right: 10px;
+                        font-size: 14px;
+                        line-height: 16px;
+                        overflow: hidden;
+                    }
+                    .pencil{
+                        margin-right: 15px;
+                        width: 18px;
+                        height: 18px;
+                    }
+                }
+                .goal-1{
+                    width: 1031px;
+                }
+                .goal-2, .goal-3{
+                    width: 507px;
+                }
+                .goal-4, .goal-5, .goal-6, .goal-7{
+                    width: 246px;
+                }
+                .goal-8, .goal-9, .goal-10{
+                    width: 115px;
+                }
+                .goal-info {
+                    position: absolute;
+                    z-index: 10;
+                    width: 1031px;
+                    flex-direction: column;
+                    padding: 16px;
+                    font-weight: 500;
+                    font-size: 14px;
+                    line-height: 20px;
+                    background:$colorBgHeader;
+                    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+                    border: 1px solid $colorActive;
+                    box-sizing: border-box;
+                    border-radius: 5px;
+                    .description{
+                        max-width: 981px;
+                        overflow: hidden;
+                    }
+                    .goalName{
+                        margin-bottom: 16px;
+                        width: 981px;
+                    }
+                    .pencil {
+                        position: absolute;
+                        right: 16px;
+                        width: 18px;
+                        height: 18px;
+                    }
+                }
+            }                
+        }
+    }
+    .goal-info-wrapper{
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+    }
+}    

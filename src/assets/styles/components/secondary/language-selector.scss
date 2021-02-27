@@ -1,0 +1,17 @@
+.language-selector {
+
+	&__wrapper {
+		width: 100%;
+		display: flex;
+		justify-content: flex-end;
+		padding: 10px 20px;
+	}
+
+	&__link {
+		text-decoration: none;
+
+		&:not(:last-child) {
+			margin-right: 15px;
+		}
+	}
+}

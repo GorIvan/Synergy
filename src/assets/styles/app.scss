@@ -1,0 +1,35 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+
+@import "./global.scss";
+@import "./components/login.scss";
+@import "./components/main.scss";
+@import "./components/authorization.scss";
+@import "./components/page.scss";
+
+@import "./components/modal/modal.scss";
+@import "./components/modal/avatar.scss";
+@import "./components/modal/profile.scss";
+@import "./components/modal/edit_fullname.scss";
+@import "./components/modal/passRecovery.scss";
+@import "./components/modal/create_game.scss";
+@import "./components/modal/setting_up_game.scss";
+@import "./components/modal/slider.scss";
+
+@import "./components/secondary/coach.scss";
+@import "./components/secondary/games.scss";
+@import "components/secondary/language-selector.scss";
+@import "./components/secondary/admin.scss";
+@import "components/secondary/language-menu.scss";
+@import "components/secondary/add-trainer.scss";
+@import "components/secondary/change-pass.scss";
+
+@import "./components/calendar/calendar.scss";
+@import "./components/calendar/reports.scss";
+@import "./components/calendar/weeks.scss";
+@import "./components/calendar/goal_list.scss";
+@import "./components/calendar/modal/edit_goal.scss";
+@import "./components/calendar/modal/edit_report.scss";
+
+

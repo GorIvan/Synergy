@@ -1,0 +1,37 @@
+.calendar-page{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: $colorBg;
+    display: flex;
+    *{
+        display: flex
+    }
+    .page-sidebar__menu{
+        flex-direction: column;
+    }
+    .calendar-wrapper{
+        width: 100vw;
+        margin-bottom: 16px;     
+        align-items: center;
+        flex-direction: column;
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            width: 9px;
+            height: 166px;
+        }            
+        /* Track */
+        &::-webkit-scrollbar-track {
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+        }            
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            background: $colorPrimary50;
+        }
+    }    
+}
