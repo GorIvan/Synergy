@@ -35,7 +35,16 @@
 
             </button>
         </div>
-
+        <ul v-show = "files.length>0" class="addpost__prevues">
+            <li v-for= "(file, ind) in files" :key = "ind" class="addpost__prevues-item">
+                <div class="addpost__prevues-name">
+                    {{file.name}}
+                </div>
+                <div class="addpost__prevues-btn" @click="delLoadFile(ind)">
+                    <img src="@/assets/img/off_close.png">
+                </div>
+            </li>
+        </ul>
     </article>
 
 </template>
@@ -63,17 +72,19 @@
             loadFile (event) {
                 const uploadedFile = event.target.files[0];
                 const filesSize = this.files.reduce(function(sum, item) {
-                                                                            return sum + item.size;
-                                                                        }, 0);
+                    return sum + item.size;
+                }, 0);
                 let size = filesSize + uploadedFile.size;
                 let fileFormat = uploadedFile.name.split(".").pop()
-                if (size <= 26214400 && (fileFormat === 'jpg'|| fileFormat === 'png'||fileFormat === 'pdf'||fileFormat === 'docx'||fileFormat === 'xlsx')) {
-                   
-                    this.files.push(uploadedFile)
-                    
+                if (size <= 26214400 && (fileFormat === 'jpg'|| fileFormat === 'png'||fileFormat === 'pdf'||fileFormat === 'docx'||fileFormat === 'xlsx')) {                  
+                    this.files.push(uploadedFile)                   
                 } else {
                     alert('Последний выбранный вами файл не удовлетворяет требованиям и не был загружен')
                 }
+            },
+            delLoadFile(ind){
+                this.files.splice(ind, 1)
+                
             },
             addPost(){
                 const data = {
@@ -81,13 +92,12 @@
                     text: this.text,
                     files:this.files
                 }
-                console.log('data', data)
                 this.SEND_POST(data)
                 .then(resolve => {
-                        this.POSTS_FROM_SERVER(this.gameID)
-                        this.text=''
-                        this.files=[]
-                    })
+                    this.POSTS_FROM_SERVER(this.gameID)
+                    this.text=''
+                    this.files=[]
+                })
                 
                 
             },

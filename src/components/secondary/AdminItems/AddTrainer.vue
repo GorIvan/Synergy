@@ -106,8 +106,8 @@
 						}
 					)
 					.then(resolve => {
-						this.sendInvite(resolve)
-					})
+						this.sendInvite(resolve) 
+                    })
 				} else {
 					this.errorMessage = this.errors[0]
 				}
@@ -136,6 +136,9 @@
 						this.playerToTrainerVisible = false;
 						this.emailSentVisible = true;
 						break;
+					case 401:
+						this.$router.push({ path: '/logout'});
+						break;
 					default: 
 						console.log('default error: ', status);	
 				}
@@ -149,7 +152,7 @@
 							role: "COACH"
 						}
 					}
-				);
+				)
 				this.closeModal()
 			},
 

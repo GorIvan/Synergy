@@ -30,6 +30,7 @@
                     </div>
                     <div class="game-info-left__buttons">
                         <div 
+                            v-if="checkStartDate(item.startDate)"
                             class="game-button basic-buttons"  
                             @click="sendID(item.id)"
                         >
@@ -88,7 +89,7 @@
                         </div>
                     </div> 
                 </div>
-                <div class="game-button">
+                <div class="game-status">
                     {{$t(getGameStatus(item.startDate, item.endDate))}}
                 </div>
             </div>    
@@ -124,6 +125,7 @@
         mounted() {
             this.GAMES_FROM_SERVER();
             this.USERS_FROM_SERVER();
+            
         },
 
         methods: {
@@ -136,7 +138,16 @@
                 'SELECTED_GAMES_FROM_SERVER', 
                 'USERS_FROM_SERVER' 
             ]),
-
+            
+            checkStartDate(item) {
+                const date = new Date();
+                date.setDate(date.getDate() + 1);
+                const today = date.toISOString().slice(0, 10);
+                if (today >= item) {
+                    return true
+                }
+            },
+            
             checkEditButtonVisible (id, endDate) {       
                 let	date = new Date();
                 let year = date.getFullYear();
@@ -146,7 +157,7 @@
                 day  = (day  < 10) ? '0' + day  : day;
                 let currentDate = [year, month, day].join('-');
                 let dateCheck = endDate > currentDate
-    
+                
                 if (this.GET_USER.roles.includes('ADMIN') && dateCheck) {
                     return true
                 } else if (this.GET_USER.roles.includes('COACH') && dateCheck) {

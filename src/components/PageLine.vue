@@ -54,23 +54,23 @@
                             {{ $t('m_points') }}
                         </p>
                     </div>
-                    <ul class="rating__list">
+                   <ul class="rating__list">
                         <li 
-                            v-for ="item in GET_GAME.rating" 
-                            :key = "item.userId" 
+                            v-for ="item in GET_RATING" 
+                            :key = "item.user.id" 
                             class="rating__item"
                         >
                             <div class="rating__user">
                                 <div 
                                     class="avatar" 
-                                    :style="{backgroundImage:`url(${item.avatar ? item.avatar : bgImage})`}"
+                                    :style="{backgroundImage:`url(${item.user.photo ? item.user.photo : bgImage})`}"
                                 ></div>
                                 <p class="rating__user-name">
-                                    {{item.firstName}} {{item.surname}}
+                                    {{item.user.firstName}} {{item.user.lastName}}
                                 </p>
                             </div>
                             <div class="rating__user-rate">
-                                {{item.rating}}
+                                {{item.ratingCounter}}
                             </div>                            
                         </li>
                     </ul>
@@ -106,31 +106,31 @@
         },
         beforeDestroy(){
             window.removeEventListener('resize', this.onResize)
-            localStorage.removeItem('GameSelected')
+            // localStorage.removeItem('GameSelected')
         },
         computed: {
-            ...mapGetters(['GET_USER', 'GET_SELECTED_GAME', 'GET_POSTS', 'GET_GAME']),
+            ...mapGetters(['GET_USER', 'GET_SELECTED_GAME', 'GET_POSTS', 'GET_RATING']),
 
                       
         },
         created(){
             window.addEventListener('resize', this.onResize)
             this.GET_SELECTED_GAME.id ? this.POSTS_FROM_SERVER(this.GET_SELECTED_GAME.id) : this.$router.push({ path: '/main'}) 
-            
+            this.RATING_FROM_SERVER(this.GET_SELECTED_GAME.id)
 
 
             this.USERS_FROM_SERVER()
                 .then(resolve => {
                     if (!this.GET_USER.firstName || !this.GET_USER.lastName || !this.GET_USER.phone) {
                         this.$router.push({ path: '/main'})
-                    } 
+                    }
             })
         },
         mounted(){
             
         },    
         methods: {
-            ...mapActions(['POSTS_FROM_SERVER', 'USERS_FROM_SERVER']),        
+            ...mapActions(['POSTS_FROM_SERVER', 'USERS_FROM_SERVER', 'RATING_FROM_SERVER']),        
             onResize(){
                 this.keyR = +this.keyR + 1
             },
@@ -141,7 +141,6 @@
                 let day = f.getDate()
                 month = (month < 10) ? '0' + month : month;
                 day  = (day  < 10) ? '0' + day  : day;
-
                 return [day, month, year,].join('.')
                 
 

@@ -41,8 +41,8 @@
                         align-items: center;
                     }
                     .goal-description{
-                        width: 550px; //поставил наугад  -  нужно будет уточнить у дизигнера
-                        height: 40px;
+                        width: 550px; 
+                        max-height: 40px;
                         overflow: hidden;
                     }
                 }
@@ -51,13 +51,14 @@
                     .arrow{
                         z-index: 10;
                         position: absolute;
-                        width: 7px;
-                        height: 7px;
+                        // width: 7px;
+                        // height: 7px;
                         right: 13px;
-                        top: 16px;
+                        top: 7px;
                     }
                     .arrow-up{
                         z-index: 101;
+                        top: 12px;
                     }
                     .goal-status{
                         z-index: 10;
@@ -73,8 +74,8 @@
                     }
                     .status-menu{
                         z-index: 100;
-                        width: 220px;
-                        height: 152px;
+                        // width: 220px;
+                        // height: 152px;
                         border-radius: 5px;
                         box-sizing: border-box;
                         border: 1px solid $borderColor;
@@ -86,6 +87,10 @@
                         justify-content: space-around;
                         align-items: center;
                         flex-direction: column;
+                        
+                        .goal-status {
+                            margin: 8px;
+                        }
                     }
                 }
                 
@@ -97,5 +102,12 @@
     }
     .list-wrapper > :last-child{
         margin-bottom: 24px;
+    }
+    .status-menu-wrapper{
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
     }
 }

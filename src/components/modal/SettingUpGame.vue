@@ -294,22 +294,6 @@
             </ul>
         </div>
 
-        <!-- <div class="set_game-buttons">
-            <div 
-                class="confirm-button basic-buttons" 
-                @click="editGame()"
-            >
-                {{ $t("m_save_settings") }}
-            </div>
-            <div 
-                class="finish-button basic-buttons"
-                @click="finishGame()"
-
-            >
-                {{ $t("m_finish_game") }}
-            </div>
-        </div> -->
-
     </div>
 </template>
 
@@ -368,7 +352,7 @@
             this.id = this.GET_CURRENT_GAME_ID;
 
             this.GET_GAME_BY_ID_FROM_SERVER(this.id)
-                .then(resolve => {
+                .then(resolve => { 
                     this.gameData.name = resolve.name;
                     this.gameData.description = resolve.description;
                     this.gameData.endDate = resolve.endDate;
@@ -419,9 +403,7 @@
                             this.redAlertName = false;
                             this.redAlertDate = false;
                             this.closeCH();
-                        } else {
-                            console.log(resolve.status);
-                        }
+                        } 
                     })
                 }
 

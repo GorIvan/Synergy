@@ -65,7 +65,7 @@
             <ul class="table__list">
                 <li 
                     class="table__list-row"
-                    v-for="(coach, item) in GET_COACHES.coaches" 
+                    v-for="(coach, item) in GET_COACHES.users" 
                     :key="item" 
                 >
                     <div class="table__list-item id">
@@ -86,7 +86,7 @@
                         </div>                        
                     </div>
                     <div class="table__list-item delete">
-                        {{coach.status === "locked" ? $t('m_yes') : $t('m_no') }}
+                        {{coach.status === "LOCKED" ? $t('m_yes') : $t('m_no') }}
                     </div>
                     <div class="table__list-item number">
                         {{coach.licenses === null ? 0 : coach.licenses}} 
@@ -171,7 +171,7 @@
             },
 
             openCreateCoach () {
-                this.SET_PRIMARY_BLUR(true);
+                // this.SET_PRIMARY_BLUR(true);
                 this.modalVisible = true;
             },
             
